@@ -185,12 +185,12 @@ htmlTemplate content contentNodes =
             , node "meta" [ attribute "http-equiv" "content-type", attribute "content" "text/html; charset=utf-8" ] []
             , node "meta" [ attribute "viewport" "width=device-width, initial-scale=1.0, maximum-scale=1" ] []
             , node "link" [ attribute "href" "http://gmpg.org/xfn/11", attribute "rel" "profile" ] []
-            , stylesheet "css/poole.css"
-            , stylesheet "css/syntax.css"
-            , stylesheet "css/hyde.css"
+            , stylesheet "/css/poole.css"
+            , stylesheet "/css/syntax.css"
+            , stylesheet "/css/hyde.css"
             , stylesheet "http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"
-            , node "link" [ attribute "rel" "apple-touch-icon-precomposed", attribute "sizes" "144x144", attribute "href" "public/apple-touch-icon-144-precomposed.png" ] []
-            , node "link" [ attribute "rel" "shortcut icon", attribute "href" "public/favicon.ico" ] []
+            , node "link" [ attribute "rel" "apple-touch-icon-precomposed", attribute "sizes" "144x144", attribute "href" "/apple-touch-icon-144-precomposed.png" ] []
+            , node "link" [ attribute "rel" "shortcut icon", attribute "href" "/favicon.ico" ] []
             , node "link" [ attribute "rel" "alternate", attribute "type" "application/rss+xml", attribute "title" "RSS", attribute "href" "/atom.xml" ] []
             , Styles.styles
             ]
