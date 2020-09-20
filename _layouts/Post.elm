@@ -48,7 +48,7 @@ related =
 layout : String -> List (Html Never) -> List (Html Never)
 layout title contentItems =
     [ div [ class "post" ]
-        ([ h1 [ class "post-title" ] [ text title ] ] ++ contentItems ++ [ related ])
+        ([ h1 [ class "post-title" ] [ text title ] ] ++ contentItems ++ [ ])
     ]
 
 
