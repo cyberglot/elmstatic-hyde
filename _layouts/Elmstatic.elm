@@ -20,8 +20,9 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Json.Decode as Json
 import Json.Decode.Extra exposing (andMap)
-import Sidebar
+import Tiles
 import Styles
+import Bulma.CDN as Bulma exposing (stylesheet)
 
 
 type Format
@@ -184,20 +185,14 @@ htmlTemplate content contentNodes =
             [ node "title" [] [ text content.siteTitle ]
             , node "meta" [ attribute "http-equiv" "content-type", attribute "content" "text/html; charset=utf-8" ] []
             , node "meta" [ attribute "viewport" "width=device-width, initial-scale=1.0, maximum-scale=1" ] []
-            , node "link" [ attribute "href" "http://gmpg.org/xfn/11", attribute "rel" "profile" ] []
-            , stylesheet "/css/poole.css"
-            , stylesheet "/css/syntax.css"
-            , stylesheet "/css/hyde.css"
-            , stylesheet "http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"
-            , node "link" [ attribute "rel" "apple-touch-icon-precomposed", attribute "sizes" "144x144", attribute "href" "/apple-touch-icon-144-precomposed.png" ] []
-            , node "link" [ attribute "rel" "shortcut icon", attribute "href" "/favicon.ico" ] []
             , node "link" [ attribute "rel" "alternate", attribute "type" "application/rss+xml", attribute "title" "RSS", attribute "href" "/atom.xml" ] []
+            , Bulma.stylesheet
             , Styles.styles
             ]
         , node "body"
             []
-            [ Sidebar.html content.siteName content.siteUrl content.description content.copyright version pageLinks
-            , div [ class "content container" ] contentNodes
+            [ Tiles.html content.siteName content.siteUrl content.description content.copyright version pageLinks
+            , div [] contentNodes
             ]
         ]
 
@@ -211,14 +206,14 @@ layout decoder view =
                 case Json.decodeValue decoder contentJson of
                     Err error ->
                         { title = "error"
-                        , body = [ Html.div [ attribute "error" <| Json.errorToString error ] [] ]
+                        , body = [ div [ attribute "error" <| Json.errorToString error ] [] ]
                         }
 
                     Ok content ->
                         case view content of
                             Err viewError ->
                                 { title = "error"
-                                , body = [ Html.div [ attribute "error" viewError ] [] ]
+                                , body = [ div [ attribute "error" viewError ] [] ]
                                 }
 
                             Ok viewHtml ->
