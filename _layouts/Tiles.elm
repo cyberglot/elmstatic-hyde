@@ -10,7 +10,7 @@ import Bulma.Layout
         , verticalTileParent
         )
 import Bulma.Modifiers exposing (..)
-import Html exposing (Attribute, Html, div, img, p, text)
+import Html exposing (Attribute, Html, div, h1, h2, img, p, text)
 import Html.Attributes as Attr exposing (class, src)
 import Styles exposing (spacels)
 import Svg
@@ -27,19 +27,20 @@ html titl link desc copyright version lnks =
                 [ spacels [ "tile" ] ]
                 [ img [ src "images/cyberglot.svg" ] []
                 ]
-            , tileParent Auto
-                []
-                [ tileChild Auto
-                    [ spacels [ "tile" ] ]
-                    [ text "I'm taking up the bottom-left half of the grid!"
-                    ]
-                ]
             ]
-        , tileParent Auto
+        , verticalTile Width1 [] []
+        , verticalTile Width3
             []
-            [ tileChild Width4
+            [ tileChild Auto
+                [ spacels [ "tile", "card", "highlight" ] ]
+                [ img [ src "images/cyberglot.jpg" ] []
+                , p [] [ text "that's me !" ]
+                ]
+            , tileChild Auto
                 [ spacels [ "tile", "card" ] ]
-                [ text "I'm a tall column taking up the entire right edge!"
+                [ h1 [] [ text "Compiler Engineer @ Metastate" ]
+                , h2 [] [ text "PhD Candidate in Computer Science" ]
+                -- , h2 [] [ text "Specialised in Programming Language design, effect systems and usability of theorem provers." ]
                 ]
             ]
         ]

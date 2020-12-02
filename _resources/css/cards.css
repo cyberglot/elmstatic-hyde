@@ -1,0 +1,39 @@
+:root {
+    --white: #FFFCFE;
+    --purple: #241E2F;
+    --pink: #FF98BA;
+    --lavander: #E6E6FA;
+    --indigo: #9457eb;
+}
+
+
+.space-highlight {
+  display: block;
+  border: 3px solid var(--purple);
+  box-shadow: 10px -10px 0 -3px var(--purple), 10px -10px var(--lavander),
+        20px -20px 0 -3px var(--purple), 20px -20px var(--indigo);
+}
+
+.space-highlight:hover {
+  animation: shadow-wave 1s ease infinite;
+}
+
+
+@keyframes shadow-wave {
+  0% {
+    border: 3px solid var(--lavander);
+    box-shadow: 10px -10px 0 -3px var(--purple), 10px -10px var(--indigo),
+      20px -20px 0 -3px var(--purple), 20px -20px var(--pink);
+  }
+  50% {
+    border: 3px solid var(--indigo);
+    box-shadow: 10px -10px 0 -3px var(--purple), 10px -10px var(--pink),
+      20px -20px 0 -3px var(--purple), 20px -20px var(--lavander);
+  }
+  100% {
+    border: 3px solid var(--purple);
+    box-shadow: 10px -10px 0 -3px var(--purple), 10px -10px var(--lavander),
+      20px -20px 0 -3px var(--purple), 20px -20px var(--indigo);
+  }
+
+}

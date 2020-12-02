@@ -188,11 +188,11 @@ htmlTemplate content contentNodes =
             , node "link" [ attribute "rel" "alternate", attribute "type" "application/rss+xml", attribute "title" "RSS", attribute "href" "/atom.xml" ] []
             , Bulma.stylesheet
             , Styles.styles
+            , stylesheet "css/cards.css"
             ]
         , node "body"
             []
             [ Tiles.html content.siteName content.siteUrl content.description content.copyright version pageLinks
-            , div [] contentNodes
             ]
         ]
 
